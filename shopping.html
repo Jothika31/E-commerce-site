@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopping Cart</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+      rel="stylesheet"
+    />
+    <link href="./style4.css" rel="stylesheet" />
+  </head>
+
+  <body id="shop">
+    <div>
+        <header>  
+            <div class="logo"><a href="#">FARMING AND NURSERY PLANTS</a></div>   
+            <div class="search">  
+              <a href=""><input type="text" placeholder="search products" id="input">  
+                <ion-icon class="s" name="search"></ion-icon>  
+              </a>  
+            </div>  
+            <div class="heading">  
+              <ul>  
+                <li><a href="./Home.html" class="under">HOME</a></li> 
+                <li><a href="./register.html" class="under">REGISTER</a></li> 
+                <li><a href="./shopping.html" class="under">SHOP</a></li>  
+                <!--<li><a href="#" class="under">OUR PRODUCTS</a></li>-->
+                <li><a href="./contactus.html" class="under">CONTACT US</a></li>  
+                <li><a href="./aboutus.html" class="under">ABOUT US</a></li>  
+              </ul>  
+            </div>  
+            <div class="heading1">  
+              <ion-icon name="menu" class="ham"></ion-icon>  
+            </div>  
+          </header> 
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="cart">
+          <div class="col-md-12 col-lg-10 mx-auto">
+            <div class="cart-item">
+              <div class="row">
+                <div class="col-md-7 center-item">
+                  <img src="https://cdn.shopify.com/s/files/1/0579/7924/0580/products/glass-bowl-lucky-bamboo-plant-2-layer-31793705713796.jpg?v=1675599478"   alt="" />
+                  <h5>Bamboo</h5>
+                </div>
+
+                <div class="col-md-5 center-item">
+                  <div class="input-group number-spinner">
+                    <button id="removePhone" class="btn btn-default">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input
+                      id="noOfPhone"
+                      type="text"
+                      class="form-control text-center"
+                      value="1"
+                    />
+                    <button id="addPhone" class="btn btn-default">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <h5>$ <span id="phonePrice">62</span></h5>
+                  <img src="images/remove.png" alt="" class="remove-item" />
+                </div>
+              </div>
+            </div>
+
+            <div class="cart-item">
+              <div class="row">
+                <div class="col-md-7 center-item mx-auto">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_xBy7MvVoOvAJrVn6RhpssY2PScW2OKeIEmeuDpixpA5CBJqAPl4y4scZp2PiiKeNzA0&usqp=CAU"   alt="" />
+                  <h5>Coconut</h5>
+                </div>
+                <div class="col-md-5 center-item">
+                  <div class="input-group number-spinner">
+                    <button id="removeCase" class="btn btn-default">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input
+                      id="noOfCase"
+                      type="text"
+                      class="form-control text-center"
+                      value="1"
+                    />
+                    <button id="addCase" class="btn btn-default">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                  <h5>$ <span id="casePrice">120</span></h5>
+                  <img src="images/remove.png" alt="" class="remove-item" />
+                </div>
+              </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="row">
+                  <div class="col-md-7 center-item">
+                    <img src="https://4.imimg.com/data4/LR/OI/ANDROID-8605736/product-500x500.jpeg"   alt="" />
+                    <h5>Turkey berry</h5>
+                  </div>
+  
+                  <div class="col-md-5 center-item">
+                    <div class="input-group number-spinner">
+                      <button id="removePhone" class="btn btn-default">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <input
+                        id="noOfPhone"
+                        type="text"
+                        class="form-control text-center"
+                        value="1"
+                      />
+                      <button id="addPhone" class="btn btn-default">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <h5>$ <span id="upperprice">49</span></h5>
+                    <img src="images/remove.png" alt="" class="remove-item" />
+                  </div>
+                </div>
+              </div>
+
+            <div class="cart-item">
+              <div class="row">
+                <div class="col-md-8">
+                  <h5>Subtotal:</h5>
+                  <h5>Tax:</h5>
+                  <h5>Total:</h5>
+                </div>
+
+                <div class="col-md-4 status">
+                  <h5>$ <span id="subTotal">64</span></h5>
+                  <h5>$0</h5>
+                  <h5>$ <span id="total">64</span></h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 pt-4 pb-4">
+              <button type="button" class="btn btn-success check-out">
+                Check Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const singlePhonePrice = 20;
+      const singleCasePrice = 25;
+      let subtotalPrice = parseFloat(
+        document.getElementById("subTotal").innerText
+      );
+      let totalPrice = parseFloat(document.getElementById("total").innerText);
+
+      //add new phone event handler
+      const addPhoneButton = document.getElementById("addPhone");
+      addPhoneButton.addEventListener("click", function () {
+        let noOfPhone = parseInt(document.getElementById("noOfPhone").value);
+        noOfPhone++;
+        document.getElementById("noOfPhone").value = noOfPhone;
+
+        PriceOfPhone(singlePhonePrice);
+        nitPhonePrice(singlePhonePrice);
+      });
+
+      //add new case event handler
+      const addCaseButton = document.getElementById("addCase");
+      addCaseButton.addEventListener("click", function () {
+        let noOfCase = parseInt(document.getElementById("noOfCase").value);
+        noOfCase++;
+        document.getElementById("noOfCase").value = noOfCase;
+
+        PriceOfCase(singleCasePrice);
+        nitCasePrice(singleCasePrice);
+      });
+
+    
+
+      //remove phone event handler
+      const removePhoneButton = document.getElementById("removePhone");
+      removePhoneButton.addEventListener("click", function () {
+        let noOfPhone = parseInt(document.getElementById("noOfPhone").value);
+        if (noOfPhone > 0) {
+          noOfPhone--;
+          document.getElementById("noOfPhone").value = noOfPhone;
+
+          PriceOfPhone(-1 * singlePhonePrice);
+          nitPhonePrice(-1 * singlePhonePrice);
+        }
+      });
+
+      //remove case event handler
+      const removeCaseButton = document.getElementById("removeCase");
+      removeCaseButton.addEventListener("click", function () {
+        let noOfCase = parseInt(document.getElementById("noOfCase").value);
+        if (noOfCase > 0) {
+          noOfCase--;
+          document.getElementById("noOfCase").value = noOfCase;
+
+          PriceOfCase(-1 * singleCasePrice);
+          nitCasePrice(-1 * singleCasePrice);
+        }
+      });
+
+     
+      //price of phone
+      function PriceOfPhone(singlePhone) {
+        let phonePrice = parseFloat(
+          document.getElementById("phonePrice").innerText
+        );
+        phonePrice = phonePrice + singlePhone;
+        document.getElementById("phonePrice").innerText = phonePrice;
+        return phonePrice;
+      }
+
+      //price of case
+      function PriceOfCase(singleCase) {
+        let casePrice = parseFloat(
+          document.getElementById("casePrice").innerText
+        );
+        casePrice = casePrice + singleCase;
+        document.getElementById("casePrice").innerText = casePrice;
+        return casePrice;
+      }
+
+      //total and subtotal Phone price
+      function nitPhonePrice(singlePhonePrice) {
+        subtotalPrice = subtotalPrice + singlePhonePrice;
+        document.getElementById("subTotal").innerText = subtotalPrice;
+
+        totalPrice = totalPrice + singlePhonePrice;
+        document.getElementById("total").innerText = totalPrice;
+      }
+
+      //total and subtotal Case price
+      function nitCasePrice(singleCasePrice) {
+        subtotalPrice = subtotalPrice + singleCasePrice;
+        document.getElementById("subTotal").innerText = subtotalPrice;
+
+        totalPrice = totalPrice + singleCasePrice;
+        document.getElementById("total").innerText = totalPrice;
+      }
+
+      let currentPhone = parseInt(noOfPhone.value);
+      if (currentPhone < 0) {
+        noOfPhone.value = 0;
+      }
+    </script>
+  </body>
+</html>
